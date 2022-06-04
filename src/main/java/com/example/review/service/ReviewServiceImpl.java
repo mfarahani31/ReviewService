@@ -1,6 +1,7 @@
 package com.example.review.service;
 
 import com.example.review.model.Review;
+import com.example.review.model.enums.ReviewStatus;
 import com.example.review.repository.AverageAndCountOfReviews;
 import com.example.review.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,13 @@ public class ReviewServiceImpl implements ReviewService {
         lastThreeReviewForAProductModel.setRateAverage(averageAndCountOfReviews.getAverage());
 
         return lastThreeReviewForAProductModel;
+    }
+
+    @Override
+    public Review updateStatusById(Long reviewId, ReviewStatus status) {
+        Optional<Review> review = this.reviewRepository.findById(reviewId);
+        review.get().setStatus(status);
+
+        return this.reviewRepository.save(review.get());
     }
 }
