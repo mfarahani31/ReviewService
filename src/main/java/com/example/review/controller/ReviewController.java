@@ -4,6 +4,7 @@ package com.example.review.controller;
 import com.example.review.controller.dto.CreateReviewRequestModel;
 import com.example.review.controller.dto.ReviewResponseModel;
 import com.example.review.mapper.ReviewMapper;
+import com.example.review.model.Review;
 import com.example.review.service.LastThreeReviewForAProductModel;
 import com.example.review.service.ReviewServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ public class ReviewController {
                 body(ReviewMapper.INSTANCE.toReviewResponseModel(this.reviewService.save(ReviewMapper.INSTANCE.toReview(createReviewRequestModel))));
     }
 
+    @GetMapping
+    public ResponseEntity<List<ReviewResponseModel>> getAllReviews(){
+        return ResponseEntity.status(HttpStatus.OK).
+                body(ReviewMapper.INSTANCE.toReviewResponseModelList(this.reviewService.getAll()));
+    }
     @GetMapping("/last3ReviewsByProductId/{productId}")
     public ResponseEntity<LastThreeReviewForAProductModel> getLast3ReviewsByProductId(@PathVariable Long productId){
         return ResponseEntity.status(HttpStatus.OK).

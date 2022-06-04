@@ -30,6 +30,11 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
+    public List<Review> getAll() {
+        return this.reviewRepository.findAll();
+    }
+
+    @Override
     public LastThreeReviewForAProductModel getLast3viewsByProductId(Long productId) {
         List<Review> reviews = this.reviewRepository.getLastThreeReviews(productId);
         AverageAndCountOfReviews averageAndCountOfReviews = this.reviewRepository.getAverageAndCountOfReviews(productId);

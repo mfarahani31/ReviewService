@@ -6,6 +6,8 @@ import com.example.review.model.Review;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface ReviewMapper {
     ReviewMapper INSTANCE = Mappers.getMapper( ReviewMapper.class );
@@ -14,4 +16,5 @@ public interface ReviewMapper {
 
     ReviewResponseModel toReviewResponseModel(Review review);
 
+    List<ReviewResponseModel> toReviewResponseModelList(List<Review> reviews);
 }
