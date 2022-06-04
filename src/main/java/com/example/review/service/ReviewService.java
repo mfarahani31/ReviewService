@@ -11,9 +11,9 @@ public interface ReviewService {
 
     Optional<Review> getById(Long reviewId);
 
-    List<Review> getAll();
+    List<Review> getAllReviewsByProductId(Long productId);
 
     LastThreeReviewForAProductModel getLast3viewsByProductId(Long productId);
 
-    Review updateStatusById(Long reviewId, ReviewStatus status);
+    Review updateStatusById(Long productId, Long reviewId, ReviewStatus status);
 }

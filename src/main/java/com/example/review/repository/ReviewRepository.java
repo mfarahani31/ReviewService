@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Long> {
@@ -18,4 +19,7 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
     @Query(nativeQuery = true, value = "SELECT top(3) * from REVIEWS r where r.PRODUCT_ID = :productId and r.REVIEW_STATUS = 1 order by r.CREATED_AT desc")
     List<Review> getLastThreeReviews(@Param("productId") Long productId);
 
+    Optional<Review> findReviewByProductIdAndId(Long productId, Long id);
+
+    List<Review> findAllByProductId(Long productId);
 }

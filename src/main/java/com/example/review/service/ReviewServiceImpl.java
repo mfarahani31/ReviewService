@@ -31,8 +31,8 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<Review> getAll() {
-        return this.reviewRepository.findAll();
+    public List<Review> getAllReviewsByProductId(Long productId) {
+        return this.reviewRepository.findAllByProductId(productId);
     }
 
     @Override
@@ -49,8 +49,8 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public Review updateStatusById(Long reviewId, ReviewStatus status) {
-        Optional<Review> review = this.reviewRepository.findById(reviewId);
+    public Review updateStatusById(Long productId, Long reviewId, ReviewStatus status) {
+        Optional<Review> review = this.reviewRepository.findReviewByProductIdAndId(productId, reviewId);
         review.get().setStatus(status);
 
         return this.reviewRepository.save(review.get());

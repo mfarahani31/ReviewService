@@ -30,10 +30,10 @@ public class ReviewController {
                 body(ReviewMapper.INSTANCE.toReviewResponseModel(this.reviewService.save(ReviewMapper.INSTANCE.toReview(createReviewRequestModel))));
     }
 
-    @GetMapping
-    public ResponseEntity<List<ReviewResponseModel>> getAllReviews() {
+    @GetMapping("/{productId}")
+    public ResponseEntity<List<ReviewResponseModel>> getAllReviewsByProductId(@PathVariable Long productId) {
         return ResponseEntity.status(HttpStatus.OK).
-                body(ReviewMapper.INSTANCE.toReviewResponseModelList(this.reviewService.getAll()));
+                body(ReviewMapper.INSTANCE.toReviewResponseModelList(this.reviewService.getAllReviewsByProductId(productId)));
     }
 
     @GetMapping("/last3ReviewsByProductId/{productId}")
@@ -42,10 +42,10 @@ public class ReviewController {
                 body(this.reviewService.getLast3viewsByProductId(productId));
     }
 
-    @PutMapping("/updateStatusById/{reviewId}/{status}")
-    public ResponseEntity<ReviewResponseModel> updateStatusById(@PathVariable Long reviewId, @PathVariable ReviewStatus status) {
+    @PutMapping("/updateStatusById/{productId}/{reviewId}/{status}")
+    public ResponseEntity<ReviewResponseModel> updateStatusById(@PathVariable Long productId, @PathVariable Long reviewId, @PathVariable ReviewStatus status) {
         return ResponseEntity.status(HttpStatus.OK).
-                body(ReviewMapper.INSTANCE.toReviewResponseModel(this.reviewService.updateStatusById(reviewId, status)));
+                body(ReviewMapper.INSTANCE.toReviewResponseModel(this.reviewService.updateStatusById(productId, reviewId, status)));
     }
 
 
