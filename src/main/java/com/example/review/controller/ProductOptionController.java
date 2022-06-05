@@ -27,5 +27,12 @@ public class ProductOptionController {
                 body(ProductOptionMapper.INSTANCE.toProductResponseModel(this.productOptionService.save(productId, ProductOptionMapper.INSTANCE.toProductOption(createOptionRequestModel))));
     }
 
+    @GetMapping("/{productId}")
+    public ResponseEntity<ProductOptionResponseModel> getByProductId(@PathVariable Long productId) {
+        return ResponseEntity.status(HttpStatus.OK).
+                body(ProductOptionMapper.INSTANCE.toProductResponseModel(this.productOptionService.getByProductId(productId)));
+
+    }
+
 
 }

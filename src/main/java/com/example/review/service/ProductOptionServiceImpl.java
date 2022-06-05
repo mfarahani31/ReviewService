@@ -20,4 +20,9 @@ public class ProductOptionServiceImpl implements ProductOptionService {
         productOption.setProductId(productId);
         return this.productOptionRepository.save(productOption);
     }
+
+    @Override
+    public ProductOption getByProductId(Long productId) {
+        return this.productOptionRepository.findByProductId(productId);
+    }
 }
