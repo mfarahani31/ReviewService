@@ -10,11 +10,11 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "OPTIONS")
+@Table(name = "PRODUCT_OPTIONS")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Option extends BaseEntity {
+public class ProductOption extends BaseEntity {
 
 
     @Column(name = "PRODUCT_ID")

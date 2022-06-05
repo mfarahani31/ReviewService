@@ -2,9 +2,9 @@ package com.example.review.controller;
 
 
 import com.example.review.controller.dto.CreateOptionRequestModel;
-import com.example.review.mapper.OptionMapper;
-import com.example.review.model.Option;
-import com.example.review.service.OptionServiceImpl;
+import com.example.review.mapper.ProductOptionMapper;
+import com.example.review.model.ProductOption;
+import com.example.review.service.ProductProductOptionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/options")
-public class OptionController {
+public class ProductOptionController {
 
-    private final OptionServiceImpl optionService;
+    private final ProductProductOptionServiceImpl optionService;
 
     @Autowired
-    public OptionController(OptionServiceImpl optionService) {
+    public ProductOptionController(ProductProductOptionServiceImpl optionService) {
         this.optionService = optionService;
     }
 
     @PostMapping
-    public ResponseEntity<Option> saveOption(@RequestBody CreateOptionRequestModel createOptionRequestModel) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(this.optionService.save(OptionMapper.INSTANCE.toOption(createOptionRequestModel)));
+    public ResponseEntity<ProductOption> saveOption(@RequestBody CreateOptionRequestModel createOptionRequestModel) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(this.optionService.save(ProductOptionMapper.INSTANCE.toOption(createOptionRequestModel)));
 
     }
 
