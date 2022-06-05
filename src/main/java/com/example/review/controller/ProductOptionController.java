@@ -2,32 +2,29 @@ package com.example.review.controller;
 
 
 import com.example.review.controller.dto.CreateOptionRequestModel;
+import com.example.review.controller.dto.ProductOptionResponseModel;
 import com.example.review.mapper.ProductOptionMapper;
-import com.example.review.model.ProductOption;
-import com.example.review.service.ProductProductOptionServiceImpl;
+import com.example.review.service.ProductOptionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/options")
+@RequestMapping("/api/v1/reviews/options")
 public class ProductOptionController {
 
-    private final ProductProductOptionServiceImpl optionService;
+    private final ProductOptionServiceImpl productOptionService;
 
     @Autowired
-    public ProductOptionController(ProductProductOptionServiceImpl optionService) {
-        this.optionService = optionService;
+    public ProductOptionController(ProductOptionServiceImpl productOptionService) {
+        this.productOptionService = productOptionService;
     }
 
-    @PostMapping
-    public ResponseEntity<ProductOption> saveOption(@RequestBody CreateOptionRequestModel createOptionRequestModel) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(this.optionService.save(ProductOptionMapper.INSTANCE.toOption(createOptionRequestModel)));
-
+    @PostMapping("/{productId}")
+    public ResponseEntity<ProductOptionResponseModel> saveOptionForAProduct(@PathVariable Long productId, @RequestBody CreateOptionRequestModel createOptionRequestModel) {
+        return ResponseEntity.status(HttpStatus.CREATED).
+                body(ProductOptionMapper.INSTANCE.toProductResponseModel(this.productOptionService.save(productId, ProductOptionMapper.INSTANCE.toProductOption(createOptionRequestModel))));
     }
 
 

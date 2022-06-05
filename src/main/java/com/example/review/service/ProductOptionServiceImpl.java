@@ -6,17 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductProductOptionServiceImpl implements ProductOptionService {
+public class ProductOptionServiceImpl implements ProductOptionService {
 
     private final ProductOptionRepository productOptionRepository;
 
     @Autowired
-    public ProductProductOptionServiceImpl(ProductOptionRepository productOptionRepository) {
+    public ProductOptionServiceImpl(ProductOptionRepository productOptionRepository) {
         this.productOptionRepository = productOptionRepository;
     }
 
     @Override
-    public ProductOption save(ProductOption productOption) {
+    public ProductOption save(Long productId, ProductOption productOption) {
+        productOption.setProductId(productId);
         return this.productOptionRepository.save(productOption);
     }
 }
