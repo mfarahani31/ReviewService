@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/reviews/options")
+@RequestMapping("/api/v1/products")
 public class ProductOptionController {
 
     private final ProductOptionServiceImpl productOptionService;
@@ -21,17 +21,16 @@ public class ProductOptionController {
         this.productOptionService = productOptionService;
     }
 
-    @PostMapping("/{productId}")
+    @PostMapping("/{productId}/options")
     public ResponseEntity<ProductOptionResponseModel> saveOptionForAProduct(@PathVariable Long productId, @RequestBody CreateOptionRequestModel createOptionRequestModel) {
         return ResponseEntity.status(HttpStatus.CREATED).
                 body(ProductOptionMapper.INSTANCE.toProductResponseModel(this.productOptionService.save(productId, ProductOptionMapper.INSTANCE.toProductOption(createOptionRequestModel))));
     }
 
-    @GetMapping("/{productId}")
+    @GetMapping("/{productId}/options")
     public ResponseEntity<ProductOptionResponseModel> getByProductId(@PathVariable Long productId) {
         return ResponseEntity.status(HttpStatus.OK).
                 body(ProductOptionMapper.INSTANCE.toProductResponseModel(this.productOptionService.getByProductId(productId)));
-
     }
 
 
