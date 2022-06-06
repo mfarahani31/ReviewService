@@ -17,7 +17,7 @@ create table PRODUCT_OPTIONS
     id                 bigint    not null,
     created_at         timestamp not null,
     updated_at         timestamp not null,
-    VOTE_STATUS        int,
+    RATE_STATUS        int,
     COMMENT_STATUS     int,
     PRODUCT_VISIBILITY boolean,
     PRODUCT_ID         bigint,

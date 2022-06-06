@@ -2,7 +2,7 @@ package com.example.review.model;
 
 
 import com.example.review.model.enums.CommentStatus;
-import com.example.review.model.enums.VoteStatus;
+import com.example.review.model.enums.RateStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +28,7 @@ public class ProductOption extends BaseEntity {
     private CommentStatus commentStatus;
 
     @Enumerated(EnumType.ORDINAL)
-    @Column(name = "VOTE_STATUS")
-    private VoteStatus voteStatus;
+    @Column(name = "RATE_STATUS")
+    private RateStatus rateStatus;
 
 }

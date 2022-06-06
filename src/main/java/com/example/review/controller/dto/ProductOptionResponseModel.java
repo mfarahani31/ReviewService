@@ -1,7 +1,7 @@
 package com.example.review.controller.dto;
 
 import com.example.review.model.enums.CommentStatus;
-import com.example.review.model.enums.VoteStatus;
+import com.example.review.model.enums.RateStatus;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -14,7 +14,7 @@ public class ProductOptionResponseModel {
 
     private CommentStatus commentStatus;
 
-    private VoteStatus voteStatus;
+    private RateStatus rateStatus;
 
     private Long productId;
 
