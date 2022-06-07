@@ -1,0 +1,1239 @@
+{
+  "info": {
+    "_postman_id": "7299c866-5a2b-4cf6-a41d-085ce149dbba",
+    "name": "Review Service",
+    "description": "Api Documentation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "api/v1",
+      "item": [
+        {
+          "name": "products/{product Id}/options",
+          "item": [
+            {
+              "name": "getByProductId",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/products/:productId/options",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":productId",
+                    "options"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "<long>",
+                      "description": "(Required) productId"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/products/:productId/options",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "products",
+                        ":productId",
+                        "options"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/products/:productId/options",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "products",
+                        ":productId",
+                        "options"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/products/:productId/options",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "products",
+                        ":productId",
+                        "options"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/products/:productId/options",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "products",
+                        ":productId",
+                        "options"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "saveOptionForAProduct",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"commentStatus\": \"<string>\",\n    \"productVisibility\": \"<boolean>\",\n    \"voteStatus\": \"<string>\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/products/:productId/options",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    ":productId",
+                    "options"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "<long>",
+                      "description": "(Required) productId"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"commentStatus\": \"<string>\",\n    \"productVisibility\": \"<boolean>\",\n    \"voteStatus\": \"<string>\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/products/:productId/options",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "products",
+                        ":productId",
+                        "options"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"commentStatus\": \"<string>\",\n    \"productVisibility\": \"<boolean>\",\n    \"voteStatus\": \"<string>\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/products/:productId/options",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "products",
+                        ":productId",
+                        "options"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"commentStatus\": \"<string>\",\n    \"productVisibility\": \"<boolean>\",\n    \"voteStatus\": \"<string>\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/products/:productId/options",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "products",
+                        ":productId",
+                        "options"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"commentStatus\": \"<string>\",\n    \"productVisibility\": \"<boolean>\",\n    \"voteStatus\": \"<string>\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/products/:productId/options",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "products",
+                        ":productId",
+                        "options"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"commentStatus\": \"<string>\",\n    \"productVisibility\": \"<boolean>\",\n    \"voteStatus\": \"<string>\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/products/:productId/options",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "products",
+                        ":productId",
+                        "options"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "reviews",
+          "item": [
+            {
+              "name": "save",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"comment\": \"<string>\",\n    \"productId\": \"<long>\",\n    \"rate\": \"<integer>\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/reviews",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "reviews"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"comment\": \"<string>\",\n    \"productId\": \"<long>\",\n    \"rate\": \"<integer>\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"comment\": \"<string>\",\n    \"productId\": \"<long>\",\n    \"rate\": \"<integer>\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"comment\": \"<string>\",\n    \"productId\": \"<long>\",\n    \"rate\": \"<integer>\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"comment\": \"<string>\",\n    \"productId\": \"<long>\",\n    \"rate\": \"<integer>\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"comment\": \"<string>\",\n    \"productId\": \"<long>\",\n    \"rate\": \"<integer>\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "getLast3ReviewsByProductId",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/reviews/last3ReviewsByProductId/:productId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "reviews",
+                    "last3ReviewsByProductId",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "<long>",
+                      "description": "(Required) productId"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/last3ReviewsByProductId/:productId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        "last3ReviewsByProductId",
+                        ":productId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/last3ReviewsByProductId/:productId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        "last3ReviewsByProductId",
+                        ":productId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/last3ReviewsByProductId/:productId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        "last3ReviewsByProductId",
+                        ":productId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/last3ReviewsByProductId/:productId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        "last3ReviewsByProductId",
+                        ":productId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "updateStatusById",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/reviews/updateStatusById/:productId/:reviewId/:status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "reviews",
+                    "updateStatusById",
+                    ":productId",
+                    ":reviewId",
+                    ":status"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "<long>",
+                      "description": "(Required) productId"
+                    },
+                    {
+                      "key": "reviewId",
+                      "value": "<long>",
+                      "description": "(Required) reviewId"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>",
+                      "description": "(Required) status"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/updateStatusById/:productId/:reviewId/:status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        "updateStatusById",
+                        ":productId",
+                        ":reviewId",
+                        ":status"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        },
+                        {
+                          "key": "reviewId"
+                        },
+                        {
+                          "key": "status"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/updateStatusById/:productId/:reviewId/:status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        "updateStatusById",
+                        ":productId",
+                        ":reviewId",
+                        ":status"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        },
+                        {
+                          "key": "reviewId"
+                        },
+                        {
+                          "key": "status"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/updateStatusById/:productId/:reviewId/:status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        "updateStatusById",
+                        ":productId",
+                        ":reviewId",
+                        ":status"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        },
+                        {
+                          "key": "reviewId"
+                        },
+                        {
+                          "key": "status"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/updateStatusById/:productId/:reviewId/:status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        "updateStatusById",
+                        ":productId",
+                        ":reviewId",
+                        ":status"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        },
+                        {
+                          "key": "reviewId"
+                        },
+                        {
+                          "key": "status"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/updateStatusById/:productId/:reviewId/:status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        "updateStatusById",
+                        ":productId",
+                        ":reviewId",
+                        ":status"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        },
+                        {
+                          "key": "reviewId"
+                        },
+                        {
+                          "key": "status"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "getAllReviewsByProductId",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/reviews/:productId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "reviews",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "<long>",
+                      "description": "(Required) productId"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/:productId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        ":productId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/:productId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        ":productId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/:productId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        ":productId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/reviews/:productId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "reviews",
+                        ":productId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "productId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "//localhost:8080/",
+      "type": "string"
+    }
+  ]
+}
