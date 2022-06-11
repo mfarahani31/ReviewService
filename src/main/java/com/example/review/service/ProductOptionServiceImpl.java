@@ -3,7 +3,9 @@ package com.example.review.service;
 import com.example.review.model.ProductOption;
 import com.example.review.repository.ProductOptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException;
 
 @Service
 public class ProductOptionServiceImpl implements ProductOptionService {
@@ -17,12 +19,21 @@ public class ProductOptionServiceImpl implements ProductOptionService {
 
     @Override
     public ProductOption save(Long productId, ProductOption productOption) {
-        productOption.setProductId(productId);
-        return this.productOptionRepository.save(productOption);
+        try {
+            productOption.setProductId(productId);
+            return this.productOptionRepository.save(productOption);
+        } catch (
+                HttpServerErrorException e) {
+            throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Override
     public ProductOption getByProductId(Long productId) {
-        return this.productOptionRepository.findByProductId(productId);
+        try {
+            return this.productOptionRepository.findByProductId(productId);
+        } catch (HttpServerErrorException e) {
+            throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

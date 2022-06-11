@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -16,9 +19,12 @@ import javax.persistence.*;
 public class Review extends BaseEntity {
 
     @Column(name = "COMMENT")
+    @Size(max = 200)
     private String comment;
 
     @Column(name = "RATE")
+    @Min(1)
+    @Max(5)
     private Integer rate;
 
     @Enumerated(EnumType.ORDINAL)

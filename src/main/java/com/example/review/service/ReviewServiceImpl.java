@@ -5,7 +5,9 @@ import com.example.review.model.enums.ReviewStatus;
 import com.example.review.repository.AverageAndCountOfReviews;
 import com.example.review.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,37 +24,56 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Review save(Review review) {
-        return this.reviewRepository.save(review);
+        try {
+            return this.reviewRepository.save(review);
+        } catch (HttpServerErrorException e) {
+            throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Override
     public Optional<Review> getById(Long reviewId) {
-        return this.reviewRepository.findById(reviewId);
+        try {
+            return this.reviewRepository.findById(reviewId);
+        } catch (HttpServerErrorException e) {
+            throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Override
     public List<Review> getAllReviewsByProductId(Long productId) {
-        return this.reviewRepository.findAllByProductId(productId);
+        try {
+            return this.reviewRepository.findAllByProductId(productId);
+        } catch (HttpServerErrorException e) {
+            throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Override
     public LastThreeReviewForAProductModel getLast3viewsByProductId(Long productId) {
-        List<Review> reviews = this.reviewRepository.getLastThreeReviews(productId);
-        AverageAndCountOfReviews averageAndCountOfReviews = this.reviewRepository.getAverageAndCountOfReviews(productId);
+        try {
+            List<Review> reviews = this.reviewRepository.getLastThreeReviews(productId);
+            AverageAndCountOfReviews averageAndCountOfReviews = this.reviewRepository.getAverageAndCountOfReviews(productId);
 
-        LastThreeReviewForAProductModel lastThreeReviewForAProductModel = new LastThreeReviewForAProductModel();
-        lastThreeReviewForAProductModel.setReviews(reviews);
-        lastThreeReviewForAProductModel.setReviewsCount(averageAndCountOfReviews.getReviewsCount());
-        lastThreeReviewForAProductModel.setRateAverage(averageAndCountOfReviews.getAverage());
+            LastThreeReviewForAProductModel lastThreeReviewForAProductModel = new LastThreeReviewForAProductModel();
+            lastThreeReviewForAProductModel.setReviews(reviews);
+            lastThreeReviewForAProductModel.setReviewsCount(averageAndCountOfReviews.getReviewsCount());
+            lastThreeReviewForAProductModel.setRateAverage(averageAndCountOfReviews.getAverage());
 
-        return lastThreeReviewForAProductModel;
+            return lastThreeReviewForAProductModel;
+        } catch (HttpServerErrorException e) {
+            throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Override
     public Review updateStatusById(Long productId, Long reviewId, ReviewStatus status) {
-        Optional<Review> review = this.reviewRepository.findReviewByProductIdAndId(productId, reviewId);
-        review.get().setStatus(status);
-
-        return this.reviewRepository.save(review.get());
+        try {
+            Optional<Review> review = this.reviewRepository.findReviewByProductIdAndId(productId, reviewId);
+            review.get().setStatus(status);
+            return this.reviewRepository.save(review.get());
+        } catch (HttpServerErrorException e) {
+            throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
