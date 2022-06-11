@@ -4,6 +4,7 @@ import com.example.review.model.Review;
 import com.example.review.model.enums.ReviewStatus;
 import com.example.review.repository.AverageAndCountOfReviews;
 import com.example.review.repository.ReviewRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import org.springframework.web.client.HttpServerErrorException;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class ReviewServiceImpl implements ReviewService {
     private final ReviewRepository reviewRepository;
