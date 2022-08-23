@@ -1,6 +1,6 @@
 # ReviewService
 
-A spring boot project for manage reviews of products
+A spring boot project for manage reviews of products in an E-Shop
 
 Used Technologies:
 
